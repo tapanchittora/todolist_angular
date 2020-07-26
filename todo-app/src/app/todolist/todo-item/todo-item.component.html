@@ -1,0 +1,39 @@
+<div class="error" *ngIf="show" >Please enter Value</div>
+<div class="todoItem">
+	<span *ngIf="!isEditing"
+	  class="todoItem__title"
+	  (dblclick)="startEdit()">
+	  {{ todo.title }}
+	</span>
+  
+	<input *ngIf="isEditing"
+	  type="text"
+	  class="todoItem__editor"
+	  [value]="todo.title"
+	  (input)="onTitleChange(input.value)"
+	  (keydown)="endEdit($event)"
+	  #input>
+	  
+	  <button class="todoItem__edit"
+		igxButton="icon"
+		(click)="startEdit()">
+		<igx-icon fontSet="material">edit</igx-icon>
+	  </button>
+
+	  <button igxRipple="white"
+	   igxButton="icon"
+	   (click)="dialog.open()">
+	   <igx-icon fontSet="material">delete</igx-icon>
+	  </button>
+	  
+
+	  <igx-dialog #dialog
+		title="Confirmation"
+		message="Do you want to delete ?"
+		leftButtonLabel="Cancel"
+		(onLeftButtonSelect)="dialog.close()"
+		rightButtonLabel="OK"
+		(onRightButtonSelect)="onRemove()">
+	 </igx-dialog>
+ </div>
+ 

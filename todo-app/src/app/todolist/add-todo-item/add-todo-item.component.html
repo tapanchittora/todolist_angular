@@ -1,0 +1,13 @@
+<div class="addTodoItem">
+	<igx-icon fontSet="material">add</igx-icon>
+	<input
+	  type="text"
+	  class="addTodoItem__editor"
+	  placeholder="ADD"
+	  [value]="title"
+	  (input)="onTitleChange(input.value)"
+	  (keydown)="endEdit($event)"
+	  #input>
+  </div>
+  <div class="error" *ngIf="show" >Please enter Value</div>
+  

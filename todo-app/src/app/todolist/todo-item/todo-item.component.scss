@@ -1,0 +1,49 @@
+/// Block
+.todoItem {
+  $todoItem: &;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 50px;
+  padding: 0 12px;
+  border-bottom: 1px solid #eee;
+
+  /// Elements
+  &__check {
+    flex: 0 0 auto;
+    padding: 0 12px;
+  }
+
+  &__title {
+    flex: 1 1 auto;
+    padding: 0 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__editor {
+    flex: 1 0 auto;
+    padding: 8px 12px;
+    background-color:#f4f4f4;
+   // outline: 1px solid #cc0000;
+  }
+
+  &__remove {
+    flex: 0 0 auto;
+    padding: 0 12px;
+  }
+
+  /// State
+  &.isDone {
+    #{$todoItem}__title {
+      text-decoration-line: line-through;
+    }
+  }
+}
+.error{
+  color:#cc0000;
+  font-size: 12px;
+  text-align: center;
+}
